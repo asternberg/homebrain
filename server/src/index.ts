@@ -7,7 +7,7 @@ const port = 3000;
 // GET endpoint to retrieve current home metadata
 app.get('/getCurrentHomeMetadata', (req, res) => {
   // Spawn the Python process that handles the CV inference
-  const pythonProcess = spawn('python3', ['./python_cv/app.py']);
+  const pythonProcess = spawn('python3', ['../python_cv/app.py']);
 
   let output = '';
 
