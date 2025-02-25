@@ -25,3 +25,6 @@ server/node_modules/thunky/index.js
 server/node_modules/thunky/LICENSE
 server/node_modules/thunky/package.json
 server/node_modules/.package-lock.json
+server/.DS_Store
+.DS_Store
+python_cv/.DS_Store
