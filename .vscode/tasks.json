@@ -1,0 +1,26 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+	  {
+		"label": "Compile TypeScript",
+		"type": "shell",
+		"command": "tsc",
+		"args": ["-p", "server/tsconfig.json"],
+		"problemMatcher": "$tsc",
+		"group": {
+		  "kind": "build",
+		  "isDefault": true
+		}
+	  },
+	  {
+		"label": "Run Server (ts-node)",
+		"type": "shell",
+		"command": "npx",
+		"args": ["ts-node", "server/src/index.ts"],
+		"group": {
+		  "kind": "test",
+		  "isDefault": true
+		}
+	  }
+	]
+  }

@@ -2,7 +2,8 @@ import express from 'express';
 import { spawn } from 'child_process';
 import fs from 'fs';
 import path from 'path';
-
+const { Bonjour } = require('bonjour-service');
+const bonjour = new Bonjour();
 const app = express();
 const port = 3000;
 
@@ -58,4 +59,12 @@ app.get('/getCurrentHomeMetadata', (req, res) => {
 
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
+   // Publish an mDNS service on the local network
+  // e.g., host name: "house-cam"
+  bonjour.publish({
+    name: 'Housebrain Service',    // friendly name
+    type: 'housebrain',            // or just 'http' or '_http._tcp'
+    protocol: 'tcp',             // 'tcp' or 'udp'
+    port: port
+  });
 });

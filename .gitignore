@@ -1,3 +1,27 @@
 # Ignore virtual environments
 venv/
 env/
+node_modules/
+server/node_modules/fast-deep-equal/LICENSE
+server/node_modules/fast-deep-equal/package.json
+server/node_modules/fast-deep-equal/react.d.ts
+server/node_modules/fast-deep-equal/react.js
+server/node_modules/fast-deep-equal/README.md
+server/node_modules/fast-deep-equal/es6/index.d.ts
+server/node_modules/fast-deep-equal/es6/index.js
+server/node_modules/fast-deep-equal/es6/react.d.ts
+server/node_modules/fast-deep-equal/es6/react.js
+server/node_modules/multicast-dns/.travis.yml
+server/node_modules/multicast-dns/appveyor.yml
+server/node_modules/multicast-dns/cli.js
+server/node_modules/multicast-dns/example.js
+server/node_modules/multicast-dns/index.js
+server/node_modules/multicast-dns/LICENSE
+server/node_modules/multicast-dns/package.json
+server/node_modules/multicast-dns/README.md
+server/node_modules/multicast-dns/test.js
+server/node_modules/thunky/.travis.yml
+server/node_modules/thunky/index.js
+server/node_modules/thunky/LICENSE
+server/node_modules/thunky/package.json
+server/node_modules/.package-lock.json
