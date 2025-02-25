@@ -1,3 +1,6 @@
+pillow
+numpy
 ultralytics
 fastapi
 uvicorn
+urllib3
