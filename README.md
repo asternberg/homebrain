@@ -98,7 +98,7 @@ All processing stays **local**—no external cloud usage or logging by default.
   "prompt": "Is there anyone at the front door?"
 }
 ```
-3. view response
+3. View response
 ```json
 {
    "response": "It appears no person is detected at the front door at the moment."
