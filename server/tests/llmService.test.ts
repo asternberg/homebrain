@@ -9,7 +9,7 @@ describe('llmService', () => {
     jest.resetAllMocks();
   });
 
-  it('askLocalLLM: should send prompt + context to local LLM and return result', async () => {
+  it('askLocalLLM: should send prompt + context + model to local LLM and return result', async () => {
     (axios.post as jest.Mock).mockResolvedValue({ data: 'Mock LLM response' });
 
     const userPrompt = "What's the status?";
@@ -17,9 +17,16 @@ describe('llmService', () => {
 
     const result = await askLocalLLM(userPrompt, houseContext);
     expect(result).toBe('Mock LLM response');
-    expect(axios.post).toHaveBeenCalledWith('http://localhost:11411/generate', {
-      prompt: expect.stringContaining('"camera.front"'),
-    });
+
+    // Verify the call to axios.post has the correct URL and object
+    expect(axios.post).toHaveBeenCalledWith(
+      'http://localhost:11434/api/generate',
+      expect.objectContaining({
+        prompt: expect.stringContaining('"camera.front"'), // checks the user prompt includes the camera context
+        model: 'mistral',
+        stream: false
+      })
+    );
   });
 
   it('should throw error if LLM call fails', async () => {

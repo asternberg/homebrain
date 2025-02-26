@@ -1,7 +1,12 @@
 // tests/askHomeBrainController.test.ts
 import { askHomeBrain } from '../src/controllers/askHomeBrainController';
+// IMPORTANT: we import the modules we want to mock as * from ...
 import * as homeMetadataService from '../src/services/homeMetadataService';
 import * as llmService from '../src/services/llmService';
+
+// Tell Jest to mock these entire modules
+jest.mock('../src/services/homeMetadataService');
+jest.mock('../src/services/llmService');
 
 describe('askHomeBrainController', () => {
   let mockReq: any;
@@ -9,7 +14,9 @@ describe('askHomeBrainController', () => {
   let mockNext: jest.Mock;
 
   beforeEach(() => {
+    // Clear any prior mock calls/implementations
     jest.resetAllMocks();
+
     mockReq = {
       body: { prompt: 'Hello from test' },
     };
@@ -21,25 +28,29 @@ describe('askHomeBrainController', () => {
   });
 
   it('should return the LLM response in JSON', async () => {
-    // Mock the services
-    (homeMetadataService.getCurrentHomeMetadata as jest.Mock).mockResolvedValue({ cameraData: 'test' });
+    // Because we mocked the modules, getCurrentHomeMetadata is now a jest.Mock
+    (homeMetadataService.getCurrentHomeMetadata as jest.Mock).mockResolvedValue({
+      cameraData: 'test',
+    });
     (llmService.askLocalLLM as jest.Mock).mockResolvedValue('LLM says hi');
 
     await askHomeBrain(mockReq, mockRes, mockNext);
 
-    // Check we called the services
     expect(homeMetadataService.getCurrentHomeMetadata).toHaveBeenCalled();
     expect(llmService.askLocalLLM).toHaveBeenCalledWith('Hello from test', { cameraData: 'test' });
-    // Check we returned JSON with { response: 'LLM says hi' }
     expect(mockRes.json).toHaveBeenCalledWith({ response: 'LLM says hi' });
   });
 
   it('should return 400 if prompt is missing', async () => {
-    mockReq.body = {}; // no prompt
+    // No prompt in request body
+    mockReq.body = {};
+
     await askHomeBrain(mockReq, mockRes, mockNext);
 
     expect(mockRes.status).toHaveBeenCalledWith(400);
-    expect(mockRes.json).toHaveBeenCalledWith({ error: 'Missing "prompt" in request body.' });
+    expect(mockRes.json).toHaveBeenCalledWith({
+      error: 'Missing "prompt" in request body.',
+    });
   });
 
   it('should handle errors by calling next(error)', async () => {
