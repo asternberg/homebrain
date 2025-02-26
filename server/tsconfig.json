@@ -8,7 +8,7 @@
     "outDir": "./dist",
     // Your main source folder
     "rootDir": ".",
-    
+    "allowJs": true,
     // Recommended flags
     "strict": true,                // Enables strict type-checking
     "esModuleInterop": true,       // Ensures correct default import behavior
