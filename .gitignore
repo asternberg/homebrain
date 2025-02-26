@@ -32,3 +32,4 @@ snapshots/
 server/.gitignore
 server/coverage
 server/node_modules
+server/node_modules/
