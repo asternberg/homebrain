@@ -124,3 +124,8 @@ Node.js v18+ and Python 3.9+
 - ENOENT for Python? Check venv/bin/python paths.
 - 400 from camera.request_stream? Possibly unsupported; skip or handle gracefully.
 - LLM 404? Confirm the model file name in Ollama’s folder and matching JSON "model" field.
+
+## Future Builds 
+- Android up that communicates with service on LAN. Its already being published via bonjour dns so should be easy to discover.
+- Access to other camera properties (history etc.) and use the LLM to plan activities to respond to a request - ie: 'who was in the yard today' --> 'looks through all event record snapshots today and look for people detected'. 
+- Use a second multimodal LLM against the snapshots (along with the CV context) to produce richer image descriptions. Note I had originally tested this instead of the CV libraries but hallucination were too high for the local multimodal LLM I could run. 
