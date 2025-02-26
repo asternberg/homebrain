@@ -20,6 +20,7 @@ def run_inference(image_bytes):
         image = Image.open(io.BytesIO(image_bytes))
         try:
             image_np = np.array(image)
+            # print(f"Image shape: {image.shape}", file=sys.stderr)
             model = YOLO('yolov8n.pt')
             # Redirect any prints during inference to stderr
             with contextlib.redirect_stdout(sys.stderr):

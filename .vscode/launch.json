@@ -11,6 +11,21 @@
       "cwd": "${workspaceFolder}/server",
       "sourceMaps": true,
       "outFiles": ["${workspaceFolder}/server/src/**/*.ts"]
+    },
+    {
+      "name": "Attach to Python debugpy",
+      "type": "debugpy",
+      "request": "attach",
+      "connect": {
+        "host": "localhost",
+        "port": 5678
+      },
+      "pathMappings": [
+        {
+          "localRoot": "${workspaceFolder}/python_cv",
+          "remoteRoot": "${workspaceFolder}/python_cv"
+        }
+      ]
     }
   ]
 }
