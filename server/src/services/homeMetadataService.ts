@@ -38,10 +38,10 @@ export async function getCurrentHomeMetadata(): Promise<Record<string, any>> {
         const imageData = await fetchCameraSnapshot(entityId);
 
         // 3) Optionally save snapshot to disk
-        const fileName = `${entityId.replace('.', '_')}_${Date.now()}.jpg`;
+        /*const fileName = `${entityId.replace('.', '_')}_${Date.now()}.jpg`;
         const filePath = path.join(snapshotsDir, fileName);
         fs.writeFileSync(filePath, imageData);
-        console.log(`Saved snapshot for ${entityId} to: ${filePath}`);
+        console.log(`Saved snapshot for ${entityId} to: ${filePath}`);*/
 
         // 4) Call Python inference
         const pythonResult = await callPythonInference(imageData, entityId);

@@ -15,8 +15,6 @@ export async function askLocalLLM(
     ---
     User prompt: ${userPrompt}
   `;
-
-
   try {
     const response = await axios.post('http://localhost:11434/api/generate', {
       prompt: systemPrompt+combinedPrompt,
