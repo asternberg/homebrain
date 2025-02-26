@@ -5,7 +5,7 @@ HomeBrain is a thin, **local**-only Node.js + TypeScript service that connects *
 > **Key Goal**: Ephemeral, local processing.  
 > - No data storage.
 > - No third-party cloud or WAN usage.
-> - Scales 
+> - Scales to more cameras just as you add them to Home-Assistant. Plug-and play LLM and CV components.
 
 ---
 
