@@ -56,9 +56,9 @@ All processing stays **local**—no external cloud usage or logging by default.
 
 3. **LLM (Local)**  
    - Install [Ollama](https://github.com/jmorganca/ollama) on macOS (or Docker on Linux).  
-   - Get a small model such as **Mistral 7B** (`mistral-7b.ggmlv3.q4_0.bin`), place it in Ollama’s model directory, then serve it:
+  serve it:
      ```bash
-     ollama serve --model mistral-7b.ggmlv3.q4_0.bin
+     ollama run mistral
      ```
 4. **Node + TypeScript**  
    - Install dependencies:
