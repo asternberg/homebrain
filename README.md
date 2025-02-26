@@ -94,12 +94,15 @@ All processing stays **local**—no external cloud usage or logging by default.
 ```json
 {
   "prompt": "Is there anyone at the front door?"
-}```
+}
+```
+
 3. **View response**: 
 ```json
 {
   "response": "It appears no person is detected at the front door at the moment."
-}```
+}
+```
 
 
 ## Notes & Debugging
