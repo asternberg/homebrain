@@ -1,11 +1,33 @@
 {
   "compilerOptions": {
-    "module": "CommonJS",
+    // The language version you want to target
     "target": "ESNext",
+    // CommonJS is typical for Node; or use "module": "NodeNext" if you prefer ESM
+    "module": "CommonJS",
+    // Where the compiled JavaScript files will go
     "outDir": "./dist",
-    "rootDir": "./src",
-    "esModuleInterop": true,
-    "strict": true
+    // Your main source folder
+    "rootDir": ".",
+    
+    // Recommended flags
+    "strict": true,                // Enables strict type-checking
+    "esModuleInterop": true,       // Ensures correct default import behavior
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,          // Skip .d.ts checks (speeds up build)
+    // "moduleResolution": "node",  // Usually the default in newer TS
+    
+    // If you want Jest types available globally in your tests:
+    "types": ["node", "jest"]
   },
-  "include": ["src"]
+  "include": [
+    // Your main source files
+    "src/**/*.ts",
+    // Include test files so that editors/IDE can type-check them
+    "tests/**/*.test.ts"
+  ],
+  "exclude": [
+    // Normally exclude built output, node_modules, etc.
+    "node_modules",
+    "dist"
+  ]
 }

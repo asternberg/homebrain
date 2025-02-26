@@ -29,5 +29,6 @@ server/.DS_Store
 .DS_Store
 python_cv/.DS_Store
 snapshots/
-
 server/.gitignore
+server/coverage
+server/node_modules
