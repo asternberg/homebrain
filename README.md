@@ -120,3 +120,7 @@ All processing stays **local**—no external cloud usage or logging by default.
 - ENOENT for Python? Check venv/bin/python paths.
 - 400 from camera.request_stream? Possibly unsupported; skip or handle gracefully.
 - LLM 404? Confirm the model file name in Ollama’s folder and matching JSON "model" field.
+
+## Future 
+- UI: Android app that communicates with service on LAN to issue simple queries. The service is already published via bonjour dns so should be easy to discover locally.
+- Use multimodal LLM on images (alongside the cv classification) for richer image descriptions. This was the original plan but the only multimodal llms I could run locally hallucinated too much. As these get better, they could be plugged in here. 
